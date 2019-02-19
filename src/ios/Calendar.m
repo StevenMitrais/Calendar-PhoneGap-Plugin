@@ -112,10 +112,10 @@
   NSNumber* nstartTime = [options objectForKey:@"newStartTime"];
   NSNumber* nendTime   = [options objectForKey:@"newEndTime"];
 
-  NSTimeInterval _startInterval = [startTime doubleValue] / 1000; // strip millis
+  NSTimeInterval _startInterval = ![[startTime description] isEqualToString:@"<null>"] ? [startTime doubleValue] / 1000 : 0.0; // strip millis
   NSDate *myStartDate = [NSDate dateWithTimeIntervalSince1970:_startInterval];
 
-  NSTimeInterval _endInterval = [endTime doubleValue] / 1000; // strip millis
+  NSTimeInterval _endInterval = ![[endTime description] isEqualToString:@"<null>"] ? [endTime doubleValue] / 1000 : 1.0; // strip millis
   NSDate *myEndDate = [NSDate dateWithTimeIntervalSince1970:_endInterval];
 
   NSDateFormatter *df = [[NSDateFormatter alloc] init];
@@ -554,10 +554,10 @@
       myEvent.URL = myUrl;
     }
 
-    NSTimeInterval _startInterval = [startTime doubleValue] / 1000; // strip millis
+    NSTimeInterval _startInterval = ![[startTime description] isEqualToString:@"<null>"] ? [startTime doubleValue] / 1000 : 0; // strip millis
     NSDate *myStartDate = [NSDate dateWithTimeIntervalSince1970:_startInterval];
 
-    NSTimeInterval _endInterval = [endTime doubleValue] / 1000; // strip millis
+    NSTimeInterval _endInterval = ![[endTime description] isEqualToString:@"<null>"] ? [endTime doubleValue] / 1000 : 1.0; // strip millis
 
     myEvent.title = title;
     myEvent.location = location;
@@ -859,11 +859,11 @@
   NSString* calendarName = [calOptions objectForKey:@"calendarName"];
 
   [self.commandDelegate runInBackground: ^{
-    NSTimeInterval _startInterval = [startTime doubleValue] / 1000; // strip millis
+    NSTimeInterval _startInterval = ![[startTime description] isEqualToString:@"<null>"] ? [startTime doubleValue] / 1000 : 0.0; // strip millis
     NSDate *myStartDate = [NSDate dateWithTimeIntervalSince1970:_startInterval];
 
     NSDate* myEndDate;
-    if ([endTime doubleValue] > 0) {
+    if ((![[endTime description] isEqualToString:@"<null>"]) && [endTime doubleValue] > 0) {
       NSTimeInterval _endInterval = [endTime doubleValue] / 1000; // strip millis
       myEndDate = [NSDate dateWithTimeIntervalSince1970:_endInterval];
     } else {
