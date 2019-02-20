@@ -1,8 +1,14 @@
 {
-  "version": "5.1.4",
   "name": "cordova-plugin-calendar",
-  "cordova_name": "Cordova PhoneGap Plugin",
+  "version": "5.1.4",
   "description": "This plugin allows you to manipulate the native calendar.",
+  "cordova": {
+    "id": "cordova-plugin-calendar",
+    "platforms": [
+      "ios",
+      "android"
+    ]
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/EddyVerbruggen/Calendar-PhoneGap-Plugin"
@@ -15,11 +21,13 @@
     "cordova-ios",
     "cordova-android"
   ],
-  "engines": [],
-  "author": "Eddy Verbruggen <eddyverbruggen@gmail.com> (https://github.com/EddyVerbruggen)",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/EddyVerbruggen/Calendar-PhoneGap-Plugin/issues"
+  "engines": {
+    "cordovaDependencies": {
+      "3.0.0": {
+        "cordova-android": ">=6.3.0"
+      }
+    }
   },
-  "homepage": "https://github.com/EddyVerbruggen/Calendar-PhoneGap-Plugin#readme"
+  "author": "Eddy Verbruggen <eddyverbruggen@gmail.com> (https://github.com/EddyVerbruggen)",
+  "license": "MIT"
 }
