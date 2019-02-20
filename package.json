@@ -21,13 +21,7 @@
     "cordova-ios",
     "cordova-android"
   ],
-  "engines": {
-    "cordovaDependencies": {
-      "3.0.0": {
-        "cordova-android": ">=6.3.0"
-      }
-    }
-  },
+  "engines": [],
   "author": "Eddy Verbruggen <eddyverbruggen@gmail.com> (https://github.com/EddyVerbruggen)",
   "license": "MIT",
   "bugs": {
